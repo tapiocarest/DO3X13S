@@ -1,0 +1,430 @@
+<!doctype html>
+<!--[if lt IE 8]><html class="no-js lt-ie8"> <![endif]-->
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>Dashboard | Tapioca</title>
+        <!-- Mobile specific metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Force IE9 to render in normal mode -->
+        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+        <meta name="author" content="" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="application-name" content="" />
+        <!-- Import google fonts - Heading first/ text second -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+        <!-- Css files -->
+        <!-- Icons -->
+        <link href="css/icons.css" rel="stylesheet" />
+        <!-- Bootstrap stylesheets (included template modifications) -->
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <!-- Plugins stylesheets (all plugin custom css) -->
+        <link href="css/plugins.css" rel="stylesheet" />
+        <!-- Main stylesheets (template main css file) -->
+        <link href="css/main.css" rel="stylesheet" />
+        <!-- Custom stylesheets ( Put your own changes here ) -->
+        <link href="css/custom.css" rel="stylesheet" />
+        <!-- Fav and touch icons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="icon" href="img/ico/favicon.ico" type="image/png">
+        <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
+        <meta name="msapplication-TileColor" content="#3399cc" />
+    </head>
+    <body>
+        <!--[if lt IE 9]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <!-- .#header -->
+        <div id="header">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <img src="img/logo.png" class="pull-left image" style="margin-left: -20px; height: 65px; padding-right: 20px;" />
+                    <a class="navbar-brand" href="index.html">
+                        Tapioca.<span class="slogan">dashboard</span>
+                    </a>
+                </div>
+                <div id="navbar-no-collapse" class="navbar-no-collapse">
+                    <ul class="nav navbar-right usernav">
+                        <!-- User Info -->
+                        <li id="username" class="dropdown">
+                            <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown">
+                                <img src="img/avatar.jpg" alt="" class="image" />
+                                <span class="txt">admin@sec4you.com.br</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu right">
+                                <li class="menu">
+                                    <ul>
+                                        <li id="edit-profile"><a href="#"><i class="s16 icomoon-icon-user-plus"></i>Edit profile</a>
+                                        </li>
+                                        <li id="comments"><a href="#"><i class="s16 icomoon-icon-bubble-2"></i>Comments</a>
+                                        </li>
+                                        <li id="add-user"><a href="#"><i class="s16 icomoon-icon-plus"></i>Add user</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="logout"><a href="login.html"><i class="s16 icomoon-icon-exit"></i><span class="txt"> Logout</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.nav-collapse -->
+            </nav>
+            <!-- /navbar -->
+        </div>
+        <!-- / #header -->
+        <div id="wrapper">
+            <!-- #wrapper -->
+            <!--Sidebar background-->
+            <div id="sidebarbg" class="hidden-lg hidden-md hidden-sm hidden-xs"></div>
+            <!--Sidebar content-->
+            <div id="sidebar" class="page-sidebar hidden-lg hidden-md hidden-sm hidden-xs">
+                <div class="shortcuts">
+                    <ul>
+                        <li><a href="http://suporte.sec4you.com.br" title="Support section" class="tip"><i class="s24 icomoon-icon-support"></i></a>
+                        </li>
+                        <li class="hide"><a href="#" title="Database backup" class="tip"><i class="s24 icomoon-icon-database"></i></a>
+                        </li>
+                        <li class="hide"><a href="charts.html" title="Sales statistics" class="tip"><i class="s24 icomoon-icon-pie-2"></i></a>
+                        </li>
+                        <li class="hide"><a href="#" title="Write post" class="tip"><i class="s24 icomoon-icon-pencil"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End search -->
+                <!-- Start .sidebar-inner -->
+                <div class="sidebar-inner">
+                    <!-- Start .sidebar-scrollarea -->
+                    <div class="sidebar-scrollarea">
+                        <!-- End .sidenav-widget -->
+                        <div class="sidebar-widget">
+                            <h6 class="title">Spool</h6>
+                            <div class="content clearfix">
+                                <div class="text-center">
+                                    <div dir="ltr" class="circle-stats mb10">
+                                        <div class="circular-item tipB" title="" data-original-title="% Spool">
+                                            <i class="icon icomoon-icon-fire"></i>
+                                            <div style="display: inline; width: 80px; height: 80px; position: relative; top: -81px;">
+                                                <canvas width="80" height="80"></canvas>
+                                                <input type="text" value="62" class="spoolCircle" readonly="readonly" style="width: 44px; height: 26px; position: absolute; vertical-align: middle; margin-top: 44px !important; margin-left: -62px; border: 0px; background: none; font-style: normal; font-variant: normal; font-weight: bold; font-stretch: normal; font-size: 16px; line-height: normal; font-family: Arial; text-align: center; color: rgb(237, 122, 83); padding: 0px; -webkit-appearance: none;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .sidenav-widget -->
+                        <div id="disk-space" class="sidebar-widget">
+                            <h6 class="title">Average Disk Space Usage</h6>
+                            <div class="content clearfix">
+                                <i class="s16  icomoon-icon-storage-2 pull-left mr10"></i>
+                                <div class="progress progress-bar-xs pull-left mt5 tip" title="16%" style="width: 125px;">
+                                    <div class="progress-bar progress-bar-success" style="width: 16%;"></div>
+                                </div>
+                                <span class="percent pull-right">16%</span>
+                                <!-- <div class="stat">304.44 / 8000 MB</div> -->
+                            </div>
+                        </div>
+                        <!-- End .sidenav-widget -->
+                        <div id="disk-space-device" class="sidebar-widget">
+                            <h6 class="title">Disk Space Usage per Device</h6>
+                            <div class="content clearfix">
+                                <!-- <div class="rightnow"> -->
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <div class="content clearfix">
+                                                <span class="txt pull-left">ECSA</span> 
+                                                <!-- <i class="s16  icomoon-icon-storage-2 pull-left mr10"></i> -->
+                                                <span class="percent pull-right" style="margin-right: -12px">17%</span>
+                                                <div class="progress progress-bar-xs pull-right mt5 tip" title="17%" style="width: 100px; margin-right: 20px;">
+                                                    <div class="progress-bar progress-bar-info" style="width: 17%;"></div>
+                                                </div>
+                                                <!-- <div class="stat">19419.94 / 12000 MB</div> -->
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content clearfix">
+                                                <span class="txt pull-left">ESQA</span> 
+                                                <!-- <i class="s16  icomoon-icon-storage-2 pull-left mr10"></i> -->
+                                                <span class="percent pull-right" style="margin-right: -12px">63%</span>
+                                                <div class="progress progress-bar-xs pull-right mt5 tip" title="63%" style="width: 100px; margin-right: 20px;">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 63%;"></div>
+                                                </div>
+                                                <!-- <div class="stat">19419.94 / 12000 MB</div> -->
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content clearfix">
+                                                <span class="txt pull-left">SQA</span> 
+                                                <!-- <i class="s16  icomoon-icon-storage-2 pull-left mr10"></i> -->
+                                                <span class="percent pull-right" style="margin-right: -12px">87%</span>
+                                                <div class="progress progress-bar-xs pull-right mt5 tip" title="87%" style="width: 100px; margin-right: 20px;">
+                                                    <div class="progress-bar progress-bar-success" style="width: 87%;"></div>
+                                                </div>
+                                                <!-- <div class="stat">19419.94 / 12000 MB</div> -->
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content clearfix">
+                                                <span class="txt pull-left">CSA</span> 
+                                                <!-- <i class="s16  icomoon-icon-storage-2 pull-left mr10"></i> -->
+                                                <span class="percent pull-right" style="margin-right: -12px">42%</span>
+                                                <div class="progress progress-bar-xs pull-right mt5 tip" title="42%" style="width: 100px; margin-right: 20px;">
+                                                    <div class="progress-bar progress-bar-warning" style="width: 42%;"></div>
+                                                </div>
+                                                <!-- <div class="stat">19419.94 / 12000 MB</div> -->
+                                            </div>
+                                        </li>
+                                    </ul>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                        <!-- End .sidenav-widget -->
+                    </div>
+                    <!-- End .sidebar-scrollarea -->
+                </div>
+                <!-- End .sidebar-inner -->
+            </div>
+            <!-- End #sidebar -->
+            <!--Body content-->
+            <div id="content" class="page-content clearfix">
+                <div class="contentwrapper">
+                    <!--Content wrapper-->
+                    <div class="heading">
+                        <!--  .heading-->
+                        <h3>Dashboard <small>(<strong><span id="updated">updated on 99:99:99 99/99/9999</span></strong>)</small></h3>
+                        <div class="resBtnSearch">
+                            <a href="#"><span class="s16 icomoon-icon-search-3"></span></a>
+                        </div>
+                        <div class="search">
+                            <!-- .search -->
+                            <form id="searchform" class="form-horizontal" action="search.html">
+                                <input type="text" class="top-search from-control" placeholder="Search here ..." />
+                                <input type="submit" class="search-btn" value="" />
+                            </form>
+                        </div>
+                        <!--  /search -->
+                        <ul class="breadcrumb">
+                            <li>You are here:</li>
+                            <li>
+                                <a href="#" class="tip" title="back to dashboard">
+                                    <i class="s16 icomoon-icon-screen-2"></i>
+                                </a>
+                                <span class="divider">
+                                    <i class="s16 icomoon-icon-arrow-right-3"></i>
+                                </span>
+                            </li>
+                            <li class="active">Blank Page</li>
+                        </ul>
+                    </div>
+                    <!-- End  / heading-->
+                    <div id="cpu-statistics" class="row">
+                        <!-- .row -->
+                        <div class="col-md-8">
+                            <div class="panel panel-default chart">
+                                <!-- Start .panel -->
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <i class="s16 icomoon-icon-bars"></i>
+                                        <span>CPU Statistics</span>
+                                    </h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="cpu-chart" style="height: 230px;width:100%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- col-md-8 end here -->
+                        <div class="col-md-4">
+                            <div class="sparkStats mb25">
+                                <!-- .sparkStats -->
+                                <h4>CPU Statistics Details
+                                    <a href="#" class="icon tip pull-right mr15" title="" data-original-title="Configure"><i class="s16 icomoon-icon-cog-2 mr0"></i></a>
+                                </h4>
+                                <ul class="list-unstyled">
+                                    <li><span class="sparkLineCpu1"><canvas width="100" height="30" style="display: inline-block; width: 100px; height: 30px; vertical-align: top;"></canvas></span> IFA:<span class="number">0</span>
+                                    </li>
+                                    <li>
+                                        <span class="sparkLineCpu2"><canvas width="100" height="30" style="display: inline-block; width: 100px; height: 30px; vertical-align: top;"></canvas></span>
+                                        IIP:
+                                        <span class="number">0</span>
+                                    </li>
+                                    <li><span class="sparkLineCpu3"><canvas width="100" height="30" style="display: inline-block; width: 100px; height: 30px; vertical-align: top;"></canvas></span> CP:
+                                        <span class="number">0</span>
+                                    </li>
+                                </ul>
+                                <div class="full-statistics pt15">
+                                    <a href="charts.html" class="btn btn-info">View full statistic <i class="s16 icomoon-icon-arrow-right-3 color-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- col-md-4 end here -->
+                    </div>
+                    <!-- / .row -->
+
+
+                    <div id="lcpu-statistics" class="row">
+                        <!-- .row -->
+                        <div class="col-md-8">
+                            <div class="panel panel-default chart">
+                                <!-- Start .panel -->
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <i class="s16 icomoon-icon-bars"></i>
+                                        <span>LCPU Statistics</span>
+                                    </h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="lcpu-chart" style="height: 230px;width:100%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- col-md-8 end here -->
+                        <div class="col-md-4">
+                            <div class="sparkStats mb25">
+                                <!-- .sparkStats -->
+                                <h4>LCPU Statistics Details
+                                    <a href="#" class="icon tip pull-right mr15" title="" data-original-title="Configure"><i class="s16 icomoon-icon-cog-2 mr0"></i></a>
+                                </h4>
+                                <ul class="list-unstyled">
+                                    <li><span class="sparkLineLCpu1"><canvas width="100" height="30" style="display: inline-block; width: 100px; height: 30px; vertical-align: top;"></canvas></span> IFA:<span class="number">0</span>
+                                    </li>
+                                    <li>
+                                        <span class="sparkLineLCpu2"><canvas width="100" height="30" style="display: inline-block; width: 100px; height: 30px; vertical-align: top;"></canvas></span>
+                                        IIP:
+                                        <span class="number">0</span>
+                                    </li>
+                                    <li><span class="sparkLineLCpu3"><canvas width="100" height="30" style="display: inline-block; width: 100px; height: 30px; vertical-align: top;"></canvas></span> CP:
+                                        <span class="number">0</span>
+                                    </li>
+                                </ul>
+                                <div class="full-statistics pt15">
+                                    <a href="charts.html" class="btn btn-info">View full statistic <i class="s16 icomoon-icon-arrow-right-3 color-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- col-md-4 end here -->
+                    </div>
+                    <!-- / .row -->
+                </div>
+                <!-- End contentwrapper -->
+            </div>
+            <!-- End #content -->
+            <div id="footer" class="clearfix sidebar-page right-sidebar-page">
+                <!-- Start #footer  -->
+                <p class="pull-left">
+                    Copyrights &copy; 2016 <a href="http://www.sec4you.com.br/" class="color-blue strong" target="_blank">SEC4YOU</a>. All rights reserved.
+                </p>
+                <p class="pull-right">
+                    <a href="#" class="mr5">Terms of use</a>
+                    |
+                    <a href="#" class="ml5 mr25">Privacy police</a>
+                </p>
+            </div>
+            <!-- End #footer  -->
+        </div>
+        <!-- / #wrapper -->
+        <!-- Back to top -->
+        <div id="back-to-top"><a href="#">Back to Top</a>
+        </div>
+        <!-- Javascripts -->
+        <!-- Load pace first -->
+        <script src="plugins/core/pace/pace.min.js"></script>
+        <!-- Important javascript libs(put in all pages) -->
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script>
+        window.jQuery || document.write('<script src="js/libs/jquery-2.1.1.min.js">\x3C/script>')
+        </script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script>
+        window.jQuery || document.write('<script src="js/libs/jquery-ui-1.10.4.min.js">\x3C/script>')
+        </script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script>
+        window.jQuery || document.write('<script src="js/libs/jquery-migrate-1.2.1.min.js">\x3C/script>')
+        </script>
+        <!--[if lt IE 9]>
+  <script type="text/javascript" src="js/libs/excanvas.min.js"></script>
+  <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <script type="text/javascript" src="js/libs/respond.min.js"></script>
+<![endif]-->
+        <!-- Bootstrap plugins -->
+        <script src="js/bootstrap/bootstrap.js"></script>
+        <!-- Core plugins ( not remove ) -->
+        <script src="js/libs/modernizr.custom.js"></script>
+        <!-- Handle responsive view functions -->
+        <script src="js/jRespond.min.js"></script>
+        <!-- Custom scroll for sidebars,tables and etc. -->
+        <script src="plugins/core/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="plugins/core/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+        <!-- Remove click delay in touch -->
+        <script src="plugins/core/fastclick/fastclick.js"></script>
+        <!-- Increase jquery animation speed -->
+        <script src="plugins/core/velocity/jquery.velocity.min.js"></script>
+        <!-- Quick search plugin (fast search for many widgets) -->
+        <script src="plugins/core/quicksearch/jquery.quicksearch.js"></script>
+        <!-- Bootbox fast bootstrap modals -->
+        <script src="plugins/ui/bootbox/bootbox.js"></script>
+        <!-- Other plugins ( load only nessesary plugins for every page) -->
+        <script src="plugins/charts/sparklines/jquery.sparkline.js"></script>
+        <script src="plugins/charts/knob/jquery.knob.js"></script>
+        <script src="plugins/charts/flot/jquery.flot.custom.js"></script>
+        <script src="plugins/charts/flot/jquery.flot.pie.js"></script>
+        <script src="plugins/charts/flot/jquery.flot.resize.js"></script>
+        <script src="plugins/charts/flot/jquery.flot.time.js"></script>
+        <script src="plugins/charts/flot/jquery.flot.growraf.js"></script>
+        <script src="plugins/charts/flot/jquery.flot.categories.js"></script>
+        <script src="plugins/charts/flot/jquery.flot.stack.js"></script>
+        <script src="plugins/charts/flot/jquery.flot.orderBars.js"></script>
+        <script src="plugins/charts/flot/jquery.flot.tooltip.min.js"></script>
+        <script src="plugins/ui/waypoint/waypoints.js"></script>
+        <script src="plugins/forms/autosize/jquery.autosize.js"></script>
+        <!-- <script src="plugins/charts/chartjs/Chart.js"></script> -->
+        <script src="js/jquery.supr.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/dashboard.js"></script>
+        <script src="js/vcerto.js"></script>
+
+        <script type="text/javascript">
+var hide_class = "hide";
+
+//doc ready function
+$(document).ready(function() {
+    var adminObj = $('body').data('supr');
+
+    // Remover barra lateral direita
+    adminObj.removeFixedSidebar('right');
+    adminObj.hideRightSidebar();
+
+    // Esconder itens não utilizados
+    var header = $("#header");
+    header.find("li#username a").removeClass("avatar");
+    header.find("li#username a img").addClass(hide_class);
+    header.find("li#username li#comments").addClass(hide_class);
+    header.find("li#username li#add-user").addClass(hide_class);
+    header.find("li#logout span").addClass(hide_class);
+
+    var content = $("#content");
+    content.find(".breadcrumb").addClass(hide_class);
+    content.find(".search").addClass(hide_class);
+
+    // charts.cpu.total();
+    $("#cpu-statistics .sparkStats .full-statistics").addClass(hide_class);
+
+    // charts.lcpu.total();
+    $("#lcpu-statistics .sparkStats .full-statistics").addClass(hide_class);
+
+    var vcertoObj = $('body').data('vcerto');
+    vcertoObj.start();
+});
+        </script>
+    </body>
+</html>
