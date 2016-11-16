@@ -195,40 +195,40 @@ $(document).ready(function() {
     }
 
     vcerto.load = function() {
-        // $.ajax({
-        //     url: vcerto.url,
-        //     type: "GET",
-        //     dataType: "json",
-        //     success: vcerto.refresh
-        // });
+        $.ajax({
+            url: vcerto.url,
+            type: "GET",
+            dataType: "json",
+            success: vcerto.refresh
+        });
 
-        var random_data = {
-            "systemview": {
-                "activityDateTime": "random data for test"
-                ,"storage": {
-                    "ecsa": randNum() + "%"
-                    ,"esqa": randNum() + "%"
-                    ,"sqa": randNum() + "%"
-                    ,"csa": randNum() + "%"
-                }
-                ,"spool": randNum() + "%"
-                ,"cpu": {
-                    "ifa": randNum() + "%"
-                    ,"iip": randNum() + "%"
-                    ,"cp": randNum() + "%"
-                }
-                ,"lcpu": {
-                    "ifa": randNum() + "%"
-                    ,"iip": randNum() + "%"
-                    ,"cp": randNum() + "%"
-                }
-            }
-        };
+        // var random_data = {
+        //     "systemview": {
+        //         "activityDateTime": "random data for test"
+        //         ,"storage": {
+        //             "ecsa": randNum() + "%"
+        //             ,"esqa": randNum() + "%"
+        //             ,"sqa": randNum() + "%"
+        //             ,"csa": randNum() + "%"
+        //         }
+        //         ,"spool": randNum() + "%"
+        //         ,"cpu": {
+        //             "ifa": randNum() + "%"
+        //             ,"iip": randNum() + "%"
+        //             ,"cp": randNum() + "%"
+        //         }
+        //         ,"lcpu": {
+        //             "ifa": randNum() + "%"
+        //             ,"iip": randNum() + "%"
+        //             ,"cp": randNum() + "%"
+        //         }
+        //     }
+        // };
         // if (vcerto.data.count > 7 && vcerto.data.count < 15) {
         //     console.log("Remove item");
         //     delete random_data["systemview"]["lcpu"]["ifa"];
         // }
-        vcerto.refresh(random_data);
+        // vcerto.refresh(random_data);
     }
 
     vcerto.start = function() {
