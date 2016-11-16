@@ -206,8 +206,8 @@ $(document).ready(function() {
             url: vcerto.url,
             type: "GET",
             dataType: "json",
-            success: vcerto.refresh,
-            error: vcerto.retry
+            success: vcerto.refresh.bind(vcerto),
+            error: vcerto.retry.bind(vcerto)
         });
 
         // var random_data = {
