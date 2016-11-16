@@ -72,6 +72,46 @@ $(document).ready(function() {
 
     //------------- Charts API Handler -------------//
     var charts = {};
+    charts.sparkline_height = function() {
+        var window_height = $(window).height();
+        var window_width = $(window).width();
+
+        if (window_width > 960) {
+            if (window_height > 900) {
+                height = 75;
+            } else if(window_height > 800) {
+                height = 60;
+            } else if(window_height > 700) {
+                height = 50;
+            } else if(window_height > 600) {
+                height = 30;
+            } else {
+                height = 40;
+            }
+        } else {
+            height = 40;
+        }
+
+        return height;
+    };
+    charts.sparkline_width = function() {
+        var window_width = $(window).width();
+
+        if (window_width > 1900) {
+            width = 400;
+        } else if(window_width > 1500) {
+            width = 300;
+        } else if(window_width > 1200) {
+            width = 200;
+        } else if(window_width > 975) {
+            width = 125;
+        } else {
+            width = 300;
+        }
+
+        return width;
+    };
+
     charts.cpu = {
         total : function(data) {
             //Lines chart without points
@@ -152,11 +192,13 @@ $(document).ready(function() {
             }//end if
         }
         ,ifa : function(data) {
+            var width = charts.sparkline_width();
+            var height = charts.sparkline_height();
             var name = ".sparkLineCpu1";
-            if ($(name).length) {
+            if ($(name).length && height > 0) {
                 $(name).sparkline(data, {
-                    width: 200,//Width of the chart - Defaults to 'auto' - May be any valid css width - 1.5em, 20px, etc (using a number without a unit specifier won't do what you want) - This option does nothing for bar and tristate chars (see barWidth)
-                    height: 50,//Height of the chart - Defaults to 'auto' (line height of the containing tag)
+                    width: width,//Width of the chart - Defaults to 'auto' - May be any valid css width - 1.5em, 20px, etc (using a number without a unit specifier won't do what you want) - This option does nothing for bar and tristate chars (see barWidth)
+                    height: height,//Height of the chart - Defaults to 'auto' (line height of the containing tag)
                     lineColor: '#88bbc8',//Used by line and discrete charts to specify the colour of the line drawn as a CSS values string
                     fillColor: '#f2f7f9',//Specify the colour used to fill the area under the graph as a CSS value. Set to false to disable fill
                     spotColor: '#e72828',//The CSS colour of the final value marker. Set to false or an empty string to hide it
@@ -165,22 +207,23 @@ $(document).ready(function() {
                     spotRadius: 3,//Radius of all spot markers, In pixels (default: 1.5) - Integer
                     lineWidth: 2//In pixels (default: 1) - Integer
                 });
-
-                if (data) {
-                    if (data[data.length-1] > 0) {
-                        $(name).next("span.number").text(data[data.length-1]);
-                    } else {
-                        $(name).next("span.number").text("loading ...");
-                    }
+            }
+            if (data) {
+                if (data[data.length-1] > 0) {
+                    $(name).next("span.number").text(data[data.length-1]);
+                } else {
+                    $(name).next("span.number").text("loading ...");
                 }
             }
         }
         ,iip : function(data) {
+            var width = charts.sparkline_width();
+            var height = charts.sparkline_height();
             var name = ".sparkLineCpu2";
-            if ($(name).length) {
+            if ($(name).length && height > 0) {
                 $(name).sparkline(data, {
-                    width: 200,//Width of the chart - Defaults to 'auto' - May be any valid css width - 1.5em, 20px, etc (using a number without a unit specifier won't do what you want) - This option does nothing for bar and tristate chars (see barWidth)
-                    height: 50,//Height of the chart - Defaults to 'auto' (line height of the containing tag)
+                    width: width,//Width of the chart - Defaults to 'auto' - May be any valid css width - 1.5em, 20px, etc (using a number without a unit specifier won't do what you want) - This option does nothing for bar and tristate chars (see barWidth)
+                    height: height,//Height of the chart - Defaults to 'auto' (line height of the containing tag)
                     lineColor: '#88bbc8',//Used by line and discrete charts to specify the colour of the line drawn as a CSS values string
                     fillColor: '#f2f7f9',//Specify the colour used to fill the area under the graph as a CSS value. Set to false to disable fill
                     spotColor: '#e72828',//The CSS colour of the final value marker. Set to false or an empty string to hide it
@@ -189,21 +232,23 @@ $(document).ready(function() {
                     spotRadius: 3,//Radius of all spot markers, In pixels (default: 1.5) - Integer
                     lineWidth: 2//In pixels (default: 1) - Integer
                 });
-                if (data) {
-                    if (data[data.length-1] > 0) {
-                        $(name).next("span.number").text(data[data.length-1]);
-                    } else {
-                        $(name).next("span.number").text("loading ...");
-                    }
+            }
+            if (data) {
+                if (data[data.length-1] > 0) {
+                    $(name).next("span.number").text(data[data.length-1]);
+                } else {
+                    $(name).next("span.number").text("loading ...");
                 }
             }
         }
         ,cp : function(data) {
+            var width = charts.sparkline_width();
+            var height = charts.sparkline_height();
             var name = ".sparkLineCpu3";
-            if ($(name).length) {
+            if ($(name).length && height > 0) {
                 $(name).sparkline(data, {
-                    width: 200,//Width of the chart - Defaults to 'auto' - May be any valid css width - 1.5em, 20px, etc (using a number without a unit specifier won't do what you want) - This option does nothing for bar and tristate chars (see barWidth)
-                    height: 50,//Height of the chart - Defaults to 'auto' (line height of the containing tag)
+                    width: width,//Width of the chart - Defaults to 'auto' - May be any valid css width - 1.5em, 20px, etc (using a number without a unit specifier won't do what you want) - This option does nothing for bar and tristate chars (see barWidth)
+                    height: height,//Height of the chart - Defaults to 'auto' (line height of the containing tag)
                     lineColor: '#88bbc8',//Used by line and discrete charts to specify the colour of the line drawn as a CSS values string
                     fillColor: '#f2f7f9',//Specify the colour used to fill the area under the graph as a CSS value. Set to false to disable fill
                     spotColor: '#e72828',//The CSS colour of the final value marker. Set to false or an empty string to hide it
@@ -212,12 +257,12 @@ $(document).ready(function() {
                     spotRadius: 3,//Radius of all spot markers, In pixels (default: 1.5) - Integer
                     lineWidth: 2//In pixels (default: 1) - Integer
                 });
-                if (data) {
-                    if (data[data.length-1] > 0) {
-                        $(name).next("span.number").text(data[data.length-1]);
-                    } else {
-                        $(name).next("span.number").text("loading ...");
-                    }
+            }
+            if (data) {
+                if (data[data.length-1] > 0) {
+                    $(name).next("span.number").text(data[data.length-1]);
+                } else {
+                    $(name).next("span.number").text("loading ...");
                 }
             }
         }
@@ -302,11 +347,13 @@ $(document).ready(function() {
             }//end if
         }
         ,ifa : function(data) {
+            var width = charts.sparkline_width();
+            var height = charts.sparkline_height();
             var name = ".sparkLineLCpu1";
-            if ($(name).length) {
+            if ($(name).length && height > 0) {
                 $(name).sparkline(data, {
-                    width: 200,//Width of the chart - Defaults to 'auto' - May be any valid css width - 1.5em, 20px, etc (using a number without a unit specifier won't do what you want) - This option does nothing for bar and tristate chars (see barWidth)
-                    height: 50,//Height of the chart - Defaults to 'auto' (line height of the containing tag)
+                    width: width,//Width of the chart - Defaults to 'auto' - May be any valid css width - 1.5em, 20px, etc (using a number without a unit specifier won't do what you want) - This option does nothing for bar and tristate chars (see barWidth)
+                    height: height,//Height of the chart - Defaults to 'auto' (line height of the containing tag)
                     lineColor: '#88bbc8',//Used by line and discrete charts to specify the colour of the line drawn as a CSS values string
                     fillColor: '#f2f7f9',//Specify the colour used to fill the area under the graph as a CSS value. Set to false to disable fill
                     spotColor: '#e72828',//The CSS colour of the final value marker. Set to false or an empty string to hide it
@@ -315,21 +362,23 @@ $(document).ready(function() {
                     spotRadius: 3,//Radius of all spot markers, In pixels (default: 1.5) - Integer
                     lineWidth: 2//In pixels (default: 1) - Integer
                 });
-                if (data) {
-                    if (data[data.length-1] > 0) {
-                        $(name).next("span.number").text(data[data.length-1]);
-                    } else {
-                        $(name).next("span.number").text("loading ...");
-                    }
+            }
+            if (data) {
+                if (data[data.length-1] > 0) {
+                    $(name).next("span.number").text(data[data.length-1]);
+                } else {
+                    $(name).next("span.number").text("loading ...");
                 }
             }
         }
         ,iip : function(data) {
+            var width = charts.sparkline_width();
+            var height = charts.sparkline_height();
             var name = ".sparkLineLCpu2";
-            if ($(name).length) {
+            if ($(name).length && height > 0) {
                 $(name).sparkline(data, {
-                    width: 200,//Width of the chart - Defaults to 'auto' - May be any valid css width - 1.5em, 20px, etc (using a number without a unit specifier won't do what you want) - This option does nothing for bar and tristate chars (see barWidth)
-                    height: 50,//Height of the chart - Defaults to 'auto' (line height of the containing tag)
+                    width: width,//Width of the chart - Defaults to 'auto' - May be any valid css width - 1.5em, 20px, etc (using a number without a unit specifier won't do what you want) - This option does nothing for bar and tristate chars (see barWidth)
+                    height: height,//Height of the chart - Defaults to 'auto' (line height of the containing tag)
                     lineColor: '#88bbc8',//Used by line and discrete charts to specify the colour of the line drawn as a CSS values string
                     fillColor: '#f2f7f9',//Specify the colour used to fill the area under the graph as a CSS value. Set to false to disable fill
                     spotColor: '#e72828',//The CSS colour of the final value marker. Set to false or an empty string to hide it
@@ -338,21 +387,23 @@ $(document).ready(function() {
                     spotRadius: 3,//Radius of all spot markers, In pixels (default: 1.5) - Integer
                     lineWidth: 2//In pixels (default: 1) - Integer
                 });
-                if (data) {
-                    if (data[data.length-1] > 0) {
-                        $(name).next("span.number").text(data[data.length-1]);
-                    } else {
-                        $(name).next("span.number").text("loading ...");
-                    }
+            }
+            if (data) {
+                if (data[data.length-1] > 0) {
+                    $(name).next("span.number").text(data[data.length-1]);
+                } else {
+                    $(name).next("span.number").text("loading ...");
                 }
             }
         }
         ,cp : function(data) {
+            var width = charts.sparkline_width();
+            var height = charts.sparkline_height();
             var name = ".sparkLineLCpu3";
-            if ($(name).length) {
+            if ($(name).length && height > 0) {
                 $(name).sparkline(data, {
-                    width: 200,//Width of the chart - Defaults to 'auto' - May be any valid css width - 1.5em, 20px, etc (using a number without a unit specifier won't do what you want) - This option does nothing for bar and tristate chars (see barWidth)
-                    height: 50,//Height of the chart - Defaults to 'auto' (line height of the containing tag)
+                    width: width,//Width of the chart - Defaults to 'auto' - May be any valid css width - 1.5em, 20px, etc (using a number without a unit specifier won't do what you want) - This option does nothing for bar and tristate chars (see barWidth)
+                    height: height,//Height of the chart - Defaults to 'auto' (line height of the containing tag)
                     lineColor: '#88bbc8',//Used by line and discrete charts to specify the colour of the line drawn as a CSS values string
                     fillColor: '#f2f7f9',//Specify the colour used to fill the area under the graph as a CSS value. Set to false to disable fill
                     spotColor: '#e72828',//The CSS colour of the final value marker. Set to false or an empty string to hide it
@@ -361,12 +412,12 @@ $(document).ready(function() {
                     spotRadius: 3,//Radius of all spot markers, In pixels (default: 1.5) - Integer
                     lineWidth: 2//In pixels (default: 1) - Integer
                 });
-                if (data) {
-                    if (data[data.length-1] > 0) {
-                        $(name).next("span.number").text(data[data.length-1]);
-                    } else {
-                        $(name).next("span.number").text("loading ...");
-                    }
+            }
+            if (data) {
+                if (data[data.length-1] > 0) {
+                    $(name).next("span.number").text(data[data.length-1]);
+                } else {
+                    $(name).next("span.number").text("loading ...");
                 }
             }
         }

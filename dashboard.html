@@ -47,6 +47,7 @@
                     <a class="navbar-brand" href="index.html">
                         Tapioca.<span class="slogan">dashboard</span>
                     </a>
+                    <strong><span>Window: <span class="window_width">1024</span>x<span class="window_height">768</span></span></strong>
                 </div>
                 <div id="navbar-no-collapse" class="navbar-no-collapse">
                     <ul class="nav navbar-right usernav">
@@ -236,7 +237,7 @@
                                     </h4>
                                 </div>
                                 <div class="panel-body">
-                                    <div class="cpu-chart" style="height: 230px;width:100%;">
+                                    <div class="cpu-chart" style="height: 240px; width:100%;">
                                     </div>
                                 </div>
                             </div>
@@ -249,14 +250,14 @@
                                     <a href="#" class="icon tip pull-right mr15" title="" data-original-title="Configure"><i class="s16 icomoon-icon-cog-2 mr0"></i></a>
                                 </h4>
                                 <ul class="list-unstyled">
-                                    <li><span class="sparkLineCpu1"><canvas width="100" height="30" style="display: inline-block; width: 100px; height: 30px; vertical-align: top;"></canvas></span> IFA:<span class="number">0</span>
+                                    <li><span class="sparkLineCpu1"><canvas width="50" height="20" style="display: inline-block; width: 50px; height: 20px; vertical-align: top;"></canvas></span> IFA:<span class="number">0</span>
                                     </li>
                                     <li>
-                                        <span class="sparkLineCpu2"><canvas width="100" height="30" style="display: inline-block; width: 100px; height: 30px; vertical-align: top;"></canvas></span>
+                                        <span class="sparkLineCpu2"><canvas width="100" height="20" style="display: inline-block; width: 100px; height: 20px; vertical-align: top;"></canvas></span>
                                         IIP:
                                         <span class="number">0</span>
                                     </li>
-                                    <li><span class="sparkLineCpu3"><canvas width="100" height="30" style="display: inline-block; width: 100px; height: 30px; vertical-align: top;"></canvas></span> CP:
+                                    <li><span class="sparkLineCpu3"><canvas width="100" height="20" style="display: inline-block; width: 100px; height: 20px; vertical-align: top;"></canvas></span> CP:
                                         <span class="number">0</span>
                                     </li>
                                 </ul>
@@ -282,7 +283,7 @@
                                     </h4>
                                 </div>
                                 <div class="panel-body">
-                                    <div class="lcpu-chart" style="height: 230px;width:100%;">
+                                    <div class="lcpu-chart" style="height: 240px;width:100%;"> <!-- 115, 165, 240 -->
                                     </div>
                                 </div>
                             </div>
@@ -295,7 +296,7 @@
                                     <a href="#" class="icon tip pull-right mr15" title="" data-original-title="Configure"><i class="s16 icomoon-icon-cog-2 mr0"></i></a>
                                 </h4>
                                 <ul class="list-unstyled">
-                                    <li><span class="sparkLineLCpu1"><canvas width="100" height="30" style="display: inline-block; width: 100px; height: 30px; vertical-align: top;"></canvas></span> IFA:<span class="number">0</span>
+                                    <li><span class="sparkLineLCpu1"><canvas width="50" height="30" style="display: inline-block; width: 50px; height: 30px; vertical-align: top;"></canvas></span> IFA:<span class="number">0</span>
                                     </li>
                                     <li>
                                         <span class="sparkLineLCpu2"><canvas width="100" height="30" style="display: inline-block; width: 100px; height: 30px; vertical-align: top;"></canvas></span>
@@ -396,6 +397,32 @@
         <script type="text/javascript">
 var hide_class = "hide";
 
+var resize_charts = function(win_height) {
+    var window_width = $(window).width();
+
+    if (window_width > 960) {
+        if (win_height > 900) {
+            $("div.cpu-chart").height("280px")
+            $("div.lcpu-chart").height("280px")
+        } else if (win_height > 800) {
+            $("div.cpu-chart").height("220px")
+            $("div.lcpu-chart").height("220px")
+        } else if (win_height > 700) {
+            $("div.cpu-chart").height("175px")
+            $("div.lcpu-chart").height("175px")
+        } else if (win_height > 600) {
+            $("div.cpu-chart").height("150px")
+            $("div.lcpu-chart").height("150px")
+        } else  {
+            $("div.cpu-chart").height("100px")
+            $("div.lcpu-chart").height("100px")
+        }
+    } else {
+        $("div.cpu-chart").height("100px")
+        $("div.lcpu-chart").height("100px")
+    }
+};
+
 //doc ready function
 $(document).ready(function() {
     var adminObj = $('body').data('supr');
@@ -424,6 +451,16 @@ $(document).ready(function() {
 
     var vcertoObj = $('body').data('vcerto');
     vcertoObj.start();
+
+    resize_charts($(window).height());
+
+    $(window).on('resize', function(){
+        var win = $(this); //this = window
+        resize_charts(win.height());
+
+        $(".window_width").text(win.width());
+        $(".window_height").text(win.height());
+    });
 });
         </script>
     </body>
