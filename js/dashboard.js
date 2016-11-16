@@ -121,7 +121,7 @@ $(document).ready(function() {
                     var d1 = data;
 
                     if (d1) {
-                        if (d1[d1.length-1][1] > 0) {
+                        if (d1[d1.length-1][1] >= 0) {
                             $("#cpu-statistics").find("h4 span").text("CPU Statistics");
                         } else {
                             $("#cpu-statistics").find("h4 span").text("CPU Statistics (loading data ...)");
@@ -209,7 +209,7 @@ $(document).ready(function() {
                 });
             }
             if (data) {
-                if (data[data.length-1] > 0) {
+                if (data[data.length-1] >= 0) {
                     $(name).next("span.number").text(data[data.length-1]);
                 } else {
                     $(name).next("span.number").text("loading ...");
@@ -234,7 +234,7 @@ $(document).ready(function() {
                 });
             }
             if (data) {
-                if (data[data.length-1] > 0) {
+                if (data[data.length-1] >= 0) {
                     $(name).next("span.number").text(data[data.length-1]);
                 } else {
                     $(name).next("span.number").text("loading ...");
@@ -259,7 +259,7 @@ $(document).ready(function() {
                 });
             }
             if (data) {
-                if (data[data.length-1] > 0) {
+                if (data[data.length-1] >= 0) {
                     $(name).next("span.number").text(data[data.length-1]);
                 } else {
                     $(name).next("span.number").text("loading ...");
@@ -277,7 +277,7 @@ $(document).ready(function() {
                     var d1 = data;
 
                     if (d1) {
-                        if (d1[d1.length-1][1] > 0) {
+                        if (d1[d1.length-1][1] >= 0) {
                             $("#lcpu-statistics").find("h4 span").text("LCPU Statistics");
                         } else {
                             $("#lcpu-statistics").find("h4 span").text("LCPU Statistics (loading data ...)");
@@ -364,7 +364,7 @@ $(document).ready(function() {
                 });
             }
             if (data) {
-                if (data[data.length-1] > 0) {
+                if (data[data.length-1] >= 0) {
                     $(name).next("span.number").text(data[data.length-1]);
                 } else {
                     $(name).next("span.number").text("loading ...");
@@ -389,7 +389,7 @@ $(document).ready(function() {
                 });
             }
             if (data) {
-                if (data[data.length-1] > 0) {
+                if (data[data.length-1] >= 0) {
                     $(name).next("span.number").text(data[data.length-1]);
                 } else {
                     $(name).next("span.number").text("loading ...");
@@ -414,7 +414,7 @@ $(document).ready(function() {
                 });
             }
             if (data) {
-                if (data[data.length-1] > 0) {
+                if (data[data.length-1] >= 0) {
                     $(name).next("span.number").text(data[data.length-1]);
                 } else {
                     $(name).next("span.number").text("loading ...");
