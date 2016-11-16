@@ -13,8 +13,8 @@
     maxProgressPerFrame: 20,
     easeFactor: 1.25,
     startOnPageLoad: true,
-    restartOnPushState: true,
-    restartOnRequestAfter: 500,
+    restartOnPushState: false,
+    restartOnRequestAfter: false,
     target: 'body',
     elements: {
       checkInterval: 100,
@@ -25,11 +25,7 @@
       sampleCount: 3,
       lagThreshold: 3
     },
-    ajax: {
-      trackMethods: ['GET'],
-      trackWebSockets: true,
-      ignoreURLs: []
-    }
+    ajax: false
   };
 
   now = function() {
