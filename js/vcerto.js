@@ -32,7 +32,7 @@ $(document).ready(function() {
     };
 
     var vcerto = {}
-    vcerto.interval = 1;
+    vcerto.interval = 10;
     vcerto.maximum = 50;
     vcerto.url = "https://api.tapioca.rest/system";
     vcerto.data = {
@@ -192,6 +192,13 @@ $(document).ready(function() {
         if (keepUpdating) {
             setTimeout(vcerto.load, this.interval * 1000);
         }
+    };
+    vcerto.retry = function(data, keepUpdating) {
+        keepUpdating = (typeof keepUpdating !== 'undefined') ? keepUpdating : true;
+
+        if (keepUpdating) {
+            setTimeout(vcerto.load, vcerto.interval * 1000);
+        }
     }
 
     vcerto.load = function() {
@@ -199,7 +206,8 @@ $(document).ready(function() {
             url: vcerto.url,
             type: "GET",
             dataType: "json",
-            success: vcerto.refresh
+            success: vcerto.refresh,
+            error: vcerto.retry
         });
 
         // var random_data = {
