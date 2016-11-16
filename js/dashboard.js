@@ -278,9 +278,9 @@ $(document).ready(function() {
 
                     if (d1) {
                         if (d1[d1.length-1][1] > 0) {
-                            $("#lcpu-statistics").find("h4 span").text("CPU Statistics");
+                            $("#lcpu-statistics").find("h4 span").text("LCPU Statistics");
                         } else {
-                            $("#lcpu-statistics").find("h4 span").text("CPU Statistics (loading data ...)");
+                            $("#lcpu-statistics").find("h4 span").text("LCPU Statistics (loading data ...)");
                         }
                     }
 
