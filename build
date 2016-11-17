@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+if [ $# -lt 1 ]
+  then
+    echo "Usage: build <path>"
+    exit -1
+fi
+
+FILE=`realpath $1`
+TEMP=$(basename $FILE)-$(date +"%Y%m%d-%H%M%S")
+
+mkdir -p /tmp/$TEMP
+cp --recursive $FILE/* /tmp/$TEMP
+tar -C /tmp -czf /tmp/$TEMP.tar.gz $TEMP
+rm -rf /tmp/$TEMP
+
+echo Built /tmp/$TEMP.tar.gz
