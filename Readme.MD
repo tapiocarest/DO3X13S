@@ -3,7 +3,7 @@ DO3X13S
 
 DO3X13S - CA World Session: Modernizing the Mainframe With APIs and CA API Management
 
-This demo demonstrates CA APIM and Tapioca Plugin, exposing Mainframe CA System View API.
+This demo demonstrates CA APIM and Tapioca Plugin, exposing Mainframe CA System View API through Tapioca.
 
 # Environment
 1. AWS Image: ami-a7775db0
